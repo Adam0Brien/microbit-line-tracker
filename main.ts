@@ -1,5 +1,5 @@
 input.onButtonPressed(Button.A, function () {
-    forwardSpeed = forwardSpeed + 5
+    forwardSpeed = forwardSpeed - 5
     if (forwardSpeed >= 50) {
         forwardSpeed = 20
     }
@@ -44,7 +44,7 @@ function rightMotor (speed2: number) {
     if (speed2 >= 0) {
         motobit.setMotorSpeed(Motor.Right, MotorDirection.Forward, speed2)
     } else {
-        motobit.setMotorSpeed(Motor.Right, MotorDirection.Reverse, Math.abs(speed2))
+        motobit.setMotorSpeed(Motor.Right, MotorDirection.Reverse, speed2)
     }
 }
 function displayMotorSpeed (ledColumn2: number, motorSpeed: number) {
@@ -75,14 +75,14 @@ let enabled = 0
 enabled = 0
 motobit.invert(Motor.Left, false)
 motobit.invert(Motor.Right, false)
-rightMotorSpeed = 0
+rightMotorSpeed = 6
 leftMotorSpeed = 0
 forwardSpeed = 20
 stopSpeed = 0
 basic.forever(function () {
     lightleft = pins.analogReadPin(AnalogPin.P0)
     lightCentre = pins.analogReadPin(AnalogPin.P1)
-    lightRight = pins.analogReadPin(AnalogPin.P2)
+    lightRight = pins.analogReadPin(AnalogPin.P3)
 })
 basic.forever(function () {
     if (enabled > 0) {
